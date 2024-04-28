@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      background-color: orange;
+      padding: 10px;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+  </style>
+  <body>
+    <button type="button" onClick="onClick()">Click me</button>
+    <p>Clicks: <a id="like-num">0</a></p>
+
+    <script type="text/javascript">
+      let clicks = 0;
+      function onClick() {
+        clicks += 1;
+        document.getElementById("like-num").innerHTML = clicks;
+      }
+    </script>
+  </body>
+</html>
