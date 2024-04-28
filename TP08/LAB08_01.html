@@ -75,10 +75,10 @@
       <div class="flex flex-row justify-evenly p-2">
         <div class="">
           <button
-            class="flex flex-row"
+            class="flex flex-row hover:bg-blue-500"
             id="like-btn"
             type="button"
-            onclick="document.getElementById('like-num').innerHTML = Date()"
+            onclick="onClick()"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,11 @@
           </button>
         </div>
       </div>
-      <div class="bg-orange-500" id="like-mun">Like Number</div>
+
+      <div class="flex flex-row">
+        <div id="like-sticker"></div>
+        <div id="like-num"></div>
+      </div>
       <div class="flex flex-row">
         <div class="pr-1 grow-0 flex items-center">
           <button class="border-2 rounded-full p-5 bg-gray-300"></button>
@@ -214,13 +218,14 @@
     </div>
 
     <script>
-      let likeNumEle = document.getElementById("like-btn");
-      let likeBtnEle = document.getElementById("like-num");
-      likeBtnEle.addEventListener("click", onClickLike);
-      let likeNum = 0;
-      function onClickLike() {
-        likeNum++;
-        likeNumEle.innerText = likeNum;
+      // let likeNumEle = document.getElementById("like-btn");
+      // let likeBtnEle = document.getElementById("like-num");
+      // likeBtnEle.addEventListener("click", onClickLike);
+      let clicks = 0;
+      function onClick() {
+        clicks++;
+        document.getElementById("like-sticker").innerHTML = "👍";
+        document.getElementById("like-num").innerHTML = clicks;
       }
     </script>
   </body>
