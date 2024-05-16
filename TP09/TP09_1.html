@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="border-2 border-gray-800 gap-5 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-blue-200 w-[300px] h-[400px] flex flex-col items-center justify-center"
+    >
+      <p class="text-4xl font-bold">Counter</p>
+      <div id="num" class="number text-green-600 text-8xl">0</div>
+      <div>
+        <button
+          id="decrease"
+          class="p-1 rounded-md border-2 border-gray-800 hover:text-white hover:bg-gray-800"
+        >
+          DECREASE
+        </button>
+        <button
+          id="reset"
+          class="p-1 rounded-md border-2 border-gray-800 hover:text-white hover:bg-gray-800"
+        >
+          RESET
+        </button>
+        <button
+          id="increase"
+          class="p-1 rounded-md border-2 border-gray-800 hover:text-white hover:bg-gray-800"
+        >
+          INCREASE
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let decreaseBnt = document.getElementById("decrease");
+      let resetBnt = document.getElementById("reset");
+      let increaseBnt = document.getElementById("increase");
+      let numberElement = document.getElementById("num");
+
+      class Counter {
+        number = 0;
+        decrease() {
+          this.number--;
+        }
+
+        increase() {
+          this.number++;
+        }
+
+        reset() {
+          this.number = 0;
+        }
+      }
+
+      let obj = new Counter();
+
+      increaseBnt.addEventListener("click", function () {
+        obj.increase();
+        numberElement.innerText = obj.number;
+      });
+      decreaseBnt.addEventListener("click", function () {
+        obj.decrease();
+        numberElement.innerText = obj.number;
+      });
+      reset.addEventListener("click", function () {
+        obj.reset();
+        numberElement.innerText = obj.number;
+      });
+    </script>
+  </body>
+</html>

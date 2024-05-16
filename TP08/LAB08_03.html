@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="border-4 border-black m-5 flex flex-col items-center p-5 gap-3">
+      <div class="text-4xl font-bold">Our Menu</div>
+      <hr
+        class="w-48 h-1 mx-auto my-4 bg-orange-400 border-0 rounded md:my-10 dark:bg-orange-400"
+      />
+      <div>
+        <button class="bg-white-600 border-2 p-1 border-orange-400 rounded-lg">
+          All
+        </button>
+        <button class="bg-white-600 border-2 p-1 border-orange-400 rounded-lg">
+          Breakfast
+        </button>
+        <button class="bg-white-600 border-2 p-1 border-orange-400 rounded-lg">
+          Lunch
+        </button>
+        <button class="bg-white-600 border-2 p-1 border-orange-400 rounded-lg">
+          Shakes
+        </button>
+        <button class="bg-white-600 border-2 p-1 border-orange-400 rounded-lg">
+          Dinner
+        </button>
+      </div>
+      <div class="flex flex-col gap-5">
+        <div id="col1" class="flex flex-col gap-4">
+          <div class="rounded-lg bg-orange-400 p-1 grow-0">
+            <img
+              class="rounded-lg"
+              src="images/hamburger-1238246_1280.jpg"
+              alt="burger"
+            />
+          </div>
+          <div class="flex flex-col">
+            <div class="flex flex-row">
+              <div class="grow text-xl font-semibold">Buttermile Pancakes</div>
+              <div class="grow-0 text-xl text-orange-400">$15.99</div>
+            </div>
+            <hr
+              class="w-full h-0.5 mx-auto my-4 bg-orange-400 border-0 rounded md:my-10 dark:bg-orange-400"
+            />
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              veritatis quaerat, consequuntur fugit nobis delectus eos,
+              molestiae molestias odio odit quos soluta libero! Nam nisi totam
+              quas cupiditate labore voluptates!
+            </div>
+          </div>
+        </div>
+        <div id="col2" class="flex flex-col gap-4">
+          <div class="rounded-lg bg-orange-400 p-1">
+            <img
+              class="rounded-lg"
+              src="images/macarons-2548827_1280.jpg"
+              alt="burger"
+            />
+          </div>
+          <div class="flex flex-col">
+            <div class="flex flex-row">
+              <div class="grow text-xl font-semibold">Buttermile Pancakes</div>
+              <div class="grow-0 text-xl text-orange-400">$15.99</div>
+            </div>
+            <hr
+              class="w-full h-0.5 mx-auto my-4 bg-orange-400 border-0 rounded md:my-10 dark:bg-orange-400"
+            />
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              veritatis quaerat, consequuntur fugit nobis delectus eos,
+              molestiae molestias odio odit quos soluta libero! Nam nisi totam
+              quas cupiditate labore voluptates!
+            </div>
+          </div>
+        </div>
+        <div id="col3" class="flex flex-col gap-4">
+          <div class="rounded-lg bg-orange-400 p-1">
+            <img
+              class="rounded-lg"
+              src="images/oranges-1995056_1280.jpg"
+              alt="burger"
+            />
+          </div>
+          <div class="flex flex-col">
+            <div class="flex flex-row">
+              <div class="grow text-xl font-semibold">Buttermile Pancakes</div>
+              <div class="grow-0 text-xl text-orange-400">$15.99</div>
+            </div>
+            <hr
+              class="w-full h-0.5 mx-auto my-4 bg-orange-400 border-0 rounded md:my-10 dark:bg-orange-400"
+            />
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              veritatis quaerat, consequuntur fugit nobis delectus eos,
+              molestiae molestias odio odit quos soluta libero! Nam nisi totam
+              quas cupiditate labore voluptates!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function adjustLayout() {
+        var col1 = document.getElementById("col1");
+        var col2 = document.getElementById("col2");
+        var col3 = document.getElementById("col3");
+
+        if (window.innerWidth <= 850) {
+          col1.classList.remove("flex-row");
+          col2.classList.remove("flex-row");
+          col3.classList.remove("flex-row");
+          col1.classList.add("flex-col");
+          col2.classList.add("flex-col");
+          col3.classList.add("flex-col");
+          document.querySelectorAll(".food-image").forEach(function (img) {
+            img.classList.remove("md:w-64", "md:h-64");
+            img.classList.add("w-full", "h-full");
+          });
+        } else {
+          col1.classList.remove("flex-col");
+          col2.classList.remove("flex-col");
+          col3.classList.remove("flex-col");
+          col1.classList.add("flex-row");
+          col2.classList.add("flex-row");
+          col3.classList.add("flex-row");
+          document.querySelectorAll(".food-image").forEach(function (img) {
+            img.classList.remove("w-full", "h-full");
+            img.classList.add("md:w-64", "md:h-64");
+          });
+        }
+      }
+
+      window.addEventListener("resize", adjustLayout);
+      adjustLayout(); // page load
+    </script>
+  </body>
+</html>

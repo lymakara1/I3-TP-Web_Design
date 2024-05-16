@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>To do List task</h1>
+    <button id="addBtn">Add</button>
+    <button id="removeBtn">Remove</button>
+    <div id="task-list"></div>
+
+    <script>
+      console.log(window.document);
+      let tasks = [];
+
+      document.getElementById("addBtn").addEventListener("click", addtext);
+
+      function addtext() {
+        document.getElementById("task-list").innerHTML += "hi";
+      }
+
+      document
+        .getElementById("removeBtn")
+        .addEventListener("click", removetext);
+      function removetext() {
+        document.getElementById("task-list").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

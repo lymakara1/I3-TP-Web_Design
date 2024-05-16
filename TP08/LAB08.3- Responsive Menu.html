@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB08.3: Responsive Menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-300">
+    <div class="max-w-5xl mx-auto">
+      <div>
+        <h2 class="text-5xl font-mono font-semibold text-center mt-8">
+          Our Menu
+        </h2>
+        <div class="flex justify-center">
+          <p class="w-40 h-1 bg-yellow-500"></p>
+        </div>
+      </div>
+      <br />
+      <div class="flex justify-center gap-16">
+        <div
+          class="border-2 border-solid border-yellow-500 rounded-lg px-4 py-2 font-semibold text-yellow-500"
+        >
+          All
+        </div>
+        <div
+          class="border-2 border-solid border-yellow-500 rounded-lg px-4 py-2 font-semibold text-yellow-500"
+        >
+          Breakfast
+        </div>
+        <div
+          class="border-2 border-solid border-yellow-500 rounded-lg px-4 py-2 font-semibold text-yellow-500"
+        >
+          Lunch
+        </div>
+        <div
+          class="border-2 border-solid border-yellow-500 rounded-lg px-4 py-2 font-semibold text-yellow-500"
+        >
+          Snacks
+        </div>
+        <div
+          class="border-2 border-solid border-yellow-500 rounded-lg px-4 py-2 font-semibold text-yellow-500"
+        >
+          Dinner
+        </div>
+      </div>
+      <br />
+      <div id="col1" class="flex gap-8">
+        <img 
+            src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chan-walrus-958545.jpg&fm=jpg"
+            alt="food1"
+            class="food-image md:w-64 md:h-64 border-4 border-solid border-yellow-500 rounded-lg"
+        />
+        <div class="w-full">
+            <div class="flex justify-between">
+                <div class="tracking-widest font-mono text-xl">Hamburger</div>
+                <div class="tracking-widest font-mono text-xl text-yellow-500">
+                    $100.89
+                </div>
+            </div>
+            <hr class="border-black" />
+            <br />
+            <p class="text-xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit laudantium recusandae consequatur, perferendis eum eos libero sunt unde iste.
+            </p>
+        </div>
+    </div>
+    <br>
+    
+    <div id="col2" class="flex gap-8">
+        <img 
+            src="https://i.natgeofe.com/n/fc9b0882-ba21-4c31-b95d-c5842989d9b9/foodtrend_3x2.jpeg?w=718&h=479"
+            alt="food1"
+            class="food-image md:w-64 md:h-64 border-4 border-solid border-yellow-500 rounded-lg"
+        />
+        <div class="w-full">
+            <div class="flex justify-between">
+                <div class="tracking-widest font-mono text-xl">Stack</div>
+                <div class="tracking-widest font-mono text-xl text-yellow-500">
+                    $45.89k
+                </div>
+            </div>
+            <hr class="border-black" />
+            <br />
+            <p class="text-xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit laudantium recusandae consequatur, perferendis eum eos libero sunt unde iste.
+            </p>
+        </div>
+    </div>
+    <br>
+    
+    <div id="col3" class="flex gap-8">
+        <img 
+            src="https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M="
+            alt="food1"
+            class="food-image md:w-64 md:h-64 border-4 border-solid border-yellow-500 rounded-lg"
+        />
+        <div class="w-full">
+            <div class="flex justify-between">
+                <div class="tracking-widest font-mono text-xl">Ohmakase</div>
+                <div class="tracking-widest font-mono text-xl text-yellow-500">
+                    $15.89
+                </div>
+            </div>
+            <hr class="border-black" />
+            <br />
+            <p class="text-xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit laudantium recusandae consequatur, perferendis eum eos libero sunt unde iste.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function adjustLayout() {
+            var col1 = document.getElementById('col1');
+            var col2 = document.getElementById('col2');
+            var col3 = document.getElementById('col3');
+    
+            if (window.innerWidth <= 770) {
+                col1.classList.remove('flex-row');
+                col2.classList.remove('flex-row');
+                col3.classList.remove('flex-row');
+                col1.classList.add('flex-col');
+                col2.classList.add('flex-col');
+                col3.classList.add('flex-col');
+                document.querySelectorAll('.food-image').forEach(function(img) {
+                    img.classList.remove('md:w-64', 'md:h-64');
+                    img.classList.add('w-full', 'h-full');
+                });
+            } else {
+                col1.classList.remove('flex-col');
+                col2.classList.remove('flex-col');
+                col3.classList.remove('flex-col');
+                col1.classList.add('flex-row');
+                col2.classList.add('flex-row');
+                col3.classList.add('flex-row');
+                document.querySelectorAll('.food-image').forEach(function(img) {
+                    img.classList.remove('w-full', 'h-full');
+                    img.classList.add('md:w-64', 'md:h-64');
+                });
+            }
+        }
+    
+        window.addEventListener('resize', adjustLayout);
+        adjustLayout(); // page load
+    </script>
+    
+    
+  </body>
+</html>

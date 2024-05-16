@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="flex flex-col items-center border-4 border-black m-10 p-5 gap-5 bg-gray-200"
+    >
+      <div class="flex flex-col items-center">
+        <div class="font-bold text-5xl tracking-wide">About</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+      </div>
+
+      <div class="flex items-center">
+        <img class="rounded-xl" src="images/angkor.jpg" alt="image" />
+      </div>
+
+      <div class="flex flex-col w-full rounded-xl bg-white">
+        <div
+          class="flex flex-row w-full justify-evenly bg-gray-500 rounded-t-xl"
+        >
+          <button
+            id="history"
+            class="p-3 hover:bg-white flex-grow rounded-tl-xl"
+          >
+            History
+          </button>
+          <button id="vision" class="p-3 hover:bg-white flex-grow">
+            Vision
+          </button>
+          <button id="goal" class="p-3 hover:bg-white flex-grow rounded-tr-xl">
+            Goal
+          </button>
+        </div>
+
+        <div class="p-3">
+          <div id="hText" class="hidden">
+            <h1>History</h1>
+            <p>
+              Hello guy my name is Makara 1 Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Non minus a cumque eius ea
+              architecto ipsam voluptate in adipisci praesentium porro voluptas
+              sequi asperiores saepe ut placeat, expedita, sed aspernatur.
+            </p>
+          </div>
+          <p id="vText" class="hidden">
+            Vison <br />
+            Hello guy my name is Makara 2 Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Dolor nostrum facilis blanditiis ex
+            impedit quod, eius, commodi corporis a sed at soluta fugiat
+            doloribus aliquam, pariatur omnis sint expedita repellendus.
+          </p>
+          <p id="gText" class="hidden">
+            Goal <br />
+            Hello guy my name is Makara 3 Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Laudantium quas molestiae blanditiis distinctio
+            facere, eaque culpa eveniet commodi laborum enim nesciunt fuga quod
+            ut aut, animi, facilis magni velit dolore.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const historyBtn = document.getElementById("history");
+      const visionBtn = document.getElementById("vision");
+      const goalBtn = document.getElementById("goal");
+
+      const historyText = document.getElementById("hText");
+      const visionText = document.getElementById("vText");
+      const goalText = document.getElementById("gText");
+
+      historyBtn.addEventListener("click", clickHistory);
+      visionBtn.addEventListener("click", clickVision);
+      goalBtn.addEventListener("click", clickGoal);
+
+      function clickHistory() {
+        historyText.classList.remove("hidden");
+        visionText.classList.add("hidden");
+        goalText.classList.add("hidden");
+        historyBtn.style.background = "white";
+        visionBtn.style.background = "gray";
+        goalBtn.style.background = "gray";
+      }
+
+      function clickVision() {
+        visionText.classList.remove("hidden");
+        historyText.classList.add("hidden");
+        goalText.classList.add("hidden");
+        historyBtn.style.background = "gray";
+        visionBtn.style.background = "white";
+        goalBtn.style.background = "gray";
+      }
+
+      function clickGoal() {
+        goalText.classList.remove("hidden");
+        historyText.classList.add("hidden");
+        visionText.classList.add("hidden");
+        historyBtn.style.background = "gray";
+        visionBtn.style.background = "gray";
+        goalBtn.style.background = "white";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB08.6: Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Define CSS animations */
+      @keyframes slideDown {
+        0% {
+          transform: translateY(-10%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .show-content {
+        display: flex;
+        flex-direction: column;
+        animation: slideDown 0.5s ease forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-yellow-100">
+    <div class="bg-blue-800 text-white py-4 shadow-slate-400">
+      <div
+        class="container mx-auto flex justify-between items-center"
+        id="main"
+      >
+        <div class="container mx-auto flex justify-between items-center">
+          <h1 class="text-5xl font-bold">NAV-BAR</h1>
+          <ul id="down" class="hidden">
+            <i class="bx bx-menu text-5xl"></i>
+          </ul>
+        </div>
+        <div class="flex justify-between w-full">
+          <ul class="flex space-x-4 text-xl" id="in-down-click">
+            <p></p>
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Project</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+          <ul class="flex space-x-4" id="close-this-contenct">
+            <li>
+              <a href="#" class="hover:text-gray-300">
+                <img
+                  src="https://cdn.freebiesupply.com/logos/large/2x/facebook-logo-2019.svg"
+                  alt="Facebook"
+                  class="w-5 h-5"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-300">
+                <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/023/741/118/small/twitter-logo-icon-social-media-icon-free-png.png"
+                  alt="Telegram"
+                  class="w-5 h-5"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-gray-300">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png"
+                  alt="Email"
+                  class="w-5 h-5"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      const downButton = document.getElementById("down");
+      const main = document.getElementById("main");
+      const inDownClick = document.getElementById("in-down-click");
+      const closethisContenct = document.getElementById("close-this-contenct");
+
+      downButton.addEventListener("click", function () {
+        if (inDownClick.classList.contains("hidden")) {
+          inDownClick.classList.remove("hidden");
+          inDownClick.classList.add("show-content");
+        } else {
+          inDownClick.classList.add("hidden");
+          inDownClick.classList.remove("show-content");
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth <= 700) {
+          main.classList.remove("flex");
+          downButton.classList.remove("hidden");
+          inDownClick.classList.add("hidden");
+          closethisContenct.classList.add("hidden");
+        } else {
+          inDownClick.classList.remove("hidden");
+          closethisContenct.classList.remove("hidden");
+          downButton.classList.add("hidden");
+          main.classList.add("flex");
+          inDownClick.classList.remove("show-content");
+        }
+      });
+    </script>
+  </body>
+</html>

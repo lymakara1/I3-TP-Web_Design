@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-black mx-2 flex flex-col items-center justify-center p-8">
+      <div class="text-white text-4xl">Background Color :</div>
+      <div id="color" class="text-white text-4xl"></div>
+    </div>
+    <div class="flex justify-center text-2xl font-semibold gap-x-5 my-20">
+      <button
+        class="border-2 border-black px-2 hover:bg-black hover:text-white"
+        id="generate"
+      >
+        GENERATE
+      </button>
+      <button
+        class="border-2 border-black px-2 hover:bg-black hover:text-white"
+        id="reset"
+      >
+        RESET
+      </button>
+    </div>
+    <div id="record"></div>
+    <script>
+      class Color {
+        colorType = "";
+        records = [];
+
+        constructor(type) {
+          this.colorType = type;
+        }
+
+        generate(hexNum) {
+          this.records.unshift(hexNum);
+          return hexNum;
+        }
+
+        getRandomNumber() {
+          const letters = "0123456789ABCDEF";
+          let color = "#";
+
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+
+        getRecord() {
+          return this.records;
+        }
+
+        reset() {
+          this.records = [];
+        }
+      }
+
+      const colorObject = {
+        type: "background",
+      };
+
+      const color = new Color(colorObject.type);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("generate").addEventListener("click", () => {
+          const hexNum = color.getRandomNumber();
+          const hexCol = color.generate(hexNum);
+          document.getElementById("color").textContent = hexNum;
+          document.getElementById("color").style.color = hexCol;
+          document.body.style.backgroundColor = hexCol;
+          const colorHis = color.getRecord();
+          const recordsDiv = document.getElementById("record");
+          recordsDiv.className = "text-2xl bg-white ml-2";
+          recordsDiv.innerHTML = "";
+
+          colorHis.map((hexNum) => {
+            const container = document.createElement("div");
+            container.className = "flex";
+
+            const record = document.createElement("div");
+            const colorPalette = document.createElement("div");
+            colorPalette.className = "h-5 w-5 m-2";
+            record.textContent = hexNum;
+            record.style.color = hexNum;
+            colorPalette.style.backgroundColor = hexNum;
+
+            container.appendChild(record);
+            container.appendChild(colorPalette);
+            recordsDiv.appendChild(container);
+          });
+        });
+
+        document.getElementById("reset").addEventListener("click", () => {
+          color.reset();
+          document.getElementById("color").innerHTML = "";
+          document.getElementById("color").style.backgroundColor = "";
+          document.body.style.backgroundColor = "#FFFFFF";
+
+          const colorHis = color.getRecord();
+          const recordsDiv = document.getElementById("record");
+          recordsDiv.innerHTML = "";
+
+          colorHis.map((hexNum) => {
+            const record = document.createElement("div");
+            record.textContent = hexNum;
+            record.style.color = hexNum;
+            recordsDiv.appendChild(record);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

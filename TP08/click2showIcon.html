@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Icon and Text on Click</title>
+    <style>
+      #content {
+        display: none; /* Initially hide the content */
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showContent()">Show Icon and Text</button>
+    <div id="content">
+      <img src="path/to/your/icon.png" alt="icon" width="50" height="50" />
+      <p>This is some text.</p>
+    </div>
+
+    <script>
+      function showContent() {
+        var content = document.getElementById("content");
+        content.style.display = "block"; // Display the content
+      }
+    </script>
+  </body>
+</html>

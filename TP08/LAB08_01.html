@@ -137,9 +137,15 @@
         </div>
       </div>
 
-      <div class="flex flex-row">
-        <div id="like-sticker"></div>
-        <div id="like-num"></div>
+      <div class="flex flex-row items-center">
+        <div class="hidden" id="like-sticker">
+          <img
+            src="images/pngwing.com.png"
+            alt="This is a like sticker."
+            style="width: 20px"
+          />
+        </div>
+        <div id="like-num" class="font-semibold pl-2"></div>
       </div>
       <div class="flex flex-row">
         <div class="pr-1 grow-0 flex items-center">
@@ -224,7 +230,7 @@
       let clicks = 0;
       function onClick() {
         clicks++;
-        document.getElementById("like-sticker").innerHTML = "👍";
+        document.getElementById("like-sticker").classList.remove("hidden");
         document.getElementById("like-num").innerHTML = clicks;
       }
     </script>

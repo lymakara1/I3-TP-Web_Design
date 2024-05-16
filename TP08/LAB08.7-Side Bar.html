@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB08.6: Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .magin {
+        margin: 5px;
+      }
+      .text-gray-700 ul li {
+        padding-top: 10px; /* Add padding to the top */
+        padding-bottom: 10px; /* Add padding to the bottom */
+      }
+      .padding {
+        padding-top: 440px;
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-yellow-100 mx-auto h-screen">
+    <div class="flex justify-between">
+      <div class="bg-white w-80 hidden" id="show">
+        <div class="flex justify-between items-center magin">
+          <p class="text-4xl font-bold">SID-BAR</p>
+          <p><i class="bx bx-undo text-4xl"></i></p>
+        </div>
+        <div class="text-gray-700 magin text-3xl text-balance py-5">
+          <ul>
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Project</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </div>
+        <br />
+        <div class="padding flex justify-around items-center">
+          <img
+            src="https://cdn.freebiesupply.com/logos/large/2x/facebook-logo-2019.svg"
+            alt="Image 1"
+            class="w-6 h-6"
+          />
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/023/741/118/small/twitter-logo-icon-social-media-icon-free-png.png"
+            alt="Image 2"
+            class="w-6 h-6"
+          />
+          <img
+            src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/78-microsoft-256.png"
+            alt="Image 3"
+            class="w-6 h-6"
+          />
+          <img
+            src="https://cdn1.iconfinder.com/data/icons/social-media-circle-7/512/Circled_Instagram_svg-256.png"
+            alt="Image 4"
+            class="w-6 h-6"
+          />
+        </div>
+      </div>
+      <p></p>
+      <div>
+        <i class="bx bx-menu text-5xl magin" id="down"></i>
+      </div>
+    </div>
+    <script>
+      const downButton = document.getElementById("down");
+      const show = document.getElementById("show");
+
+      downButton.addEventListener("click", function () {
+        if (show.classList.contains("hidden")) {
+          show.classList.remove("hidden");
+        } else {
+          show.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
